@@ -13,6 +13,7 @@ libodbc.so.2:SQLBrowseConnectA
 libodbc.so.2:SQLBrowseConnectW
 libodbc.so.2:SQLBulkOperations
 libodbc.so.2:SQLCancel
+libodbc.so.2:SQLCancelHandle
 libodbc.so.2:SQLCloseCursor
 libodbc.so.2:SQLColAttribute
 libodbc.so.2:SQLColAttributeA
@@ -154,8 +155,6 @@ libodbc.so.2:SQLTables
 libodbc.so.2:SQLTablesA
 libodbc.so.2:SQLTablesW
 libodbc.so.2:SQLTransact
-libodbc.so.2:__post_internal_error
-libodbc.so.2:dm_log_write
 libodbc.so.2:uodbc_close_stats
 libodbc.so.2:uodbc_get_stats
 libodbc.so.2:uodbc_open_stats
@@ -219,6 +218,7 @@ libodbcinst.so.2:SQLWriteFileDSNW
 libodbcinst.so.2:SQLWritePrivateProfileString
 libodbcinst.so.2:SQLWritePrivateProfileStringW
 libodbcinst.so.2:_SQLDriverConnectPrompt
+libodbcinst.so.2:_SQLDriverConnectPromptW
 libodbcinst.so.2:_odbcinst_FileINI
 libodbcinst.so.2:_odbcinst_SystemINI
 libodbcinst.so.2:_odbcinst_UserINI
