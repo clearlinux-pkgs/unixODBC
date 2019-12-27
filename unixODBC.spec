@@ -4,7 +4,7 @@
 #
 Name     : unixODBC
 Version  : 2.3.7
-Release  : 2
+Release  : 3
 URL      : http://www.unixodbc.org/unixODBC-2.3.7.tar.gz
 Source0  : http://www.unixodbc.org/unixODBC-2.3.7.tar.gz
 Summary  : unixODBC is an Open Source ODBC sub-system.
@@ -27,7 +27,6 @@ BuildRequires : readline-dev
 Summary: bin components for the unixODBC package.
 Group: Binaries
 Requires: unixODBC-license = %{version}-%{release}
-Requires: unixODBC-man = %{version}-%{release}
 
 %description bin
 bin components for the unixODBC package.
@@ -39,6 +38,7 @@ Group: Development
 Requires: unixODBC-lib = %{version}-%{release}
 Requires: unixODBC-bin = %{version}-%{release}
 Provides: unixODBC-devel = %{version}-%{release}
+Requires: unixODBC = %{version}-%{release}
 
 %description dev
 dev components for the unixODBC package.
@@ -71,30 +71,36 @@ man components for the unixODBC package.
 
 %prep
 %setup -q -n unixODBC-2.3.7
+cd %{_builddir}/unixODBC-2.3.7
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1547680395
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1577484313
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 %configure --disable-static
 make  %{?_smp_mflags}
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 make VERBOSE=1 V=1 %{?_smp_mflags} check
 
 %install
-export SOURCE_DATE_EPOCH=1547680395
+export SOURCE_DATE_EPOCH=1577484313
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/unixODBC
-cp COPYING %{buildroot}/usr/share/package-licenses/unixODBC/COPYING
-cp exe/COPYING %{buildroot}/usr/share/package-licenses/unixODBC/exe_COPYING
-cp libltdl/COPYING.LIB %{buildroot}/usr/share/package-licenses/unixODBC/libltdl_COPYING.LIB
+cp %{_builddir}/unixODBC-2.3.7/COPYING %{buildroot}/usr/share/package-licenses/unixODBC/a4e796952ca80385ca199ae5a9d4b43ca63d81d2
+cp %{_builddir}/unixODBC-2.3.7/exe/COPYING %{buildroot}/usr/share/package-licenses/unixODBC/41f867b9ac89aebe3dfc7fd10fe97bde3663030d
+cp %{_builddir}/unixODBC-2.3.7/libltdl/COPYING.LIB %{buildroot}/usr/share/package-licenses/unixODBC/01a6b4bf79aca9b556822601186afab86e8c4fbf
 %make_install
 
 %files
@@ -111,7 +117,17 @@ cp libltdl/COPYING.LIB %{buildroot}/usr/share/package-licenses/unixODBC/libltdl_
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/*.h
+/usr/include/autotest.h
+/usr/include/odbcinst.h
+/usr/include/odbcinstext.h
+/usr/include/sql.h
+/usr/include/sqlext.h
+/usr/include/sqlspi.h
+/usr/include/sqltypes.h
+/usr/include/sqlucode.h
+/usr/include/unixodbc_conf.h
+/usr/include/uodbc_extras.h
+/usr/include/uodbc_stats.h
 /usr/lib64/libodbc.so
 /usr/lib64/libodbccr.so
 /usr/lib64/libodbcinst.so
@@ -130,9 +146,9 @@ cp libltdl/COPYING.LIB %{buildroot}/usr/share/package-licenses/unixODBC/libltdl_
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/unixODBC/COPYING
-/usr/share/package-licenses/unixODBC/exe_COPYING
-/usr/share/package-licenses/unixODBC/libltdl_COPYING.LIB
+/usr/share/package-licenses/unixODBC/01a6b4bf79aca9b556822601186afab86e8c4fbf
+/usr/share/package-licenses/unixODBC/41f867b9ac89aebe3dfc7fd10fe97bde3663030d
+/usr/share/package-licenses/unixODBC/a4e796952ca80385ca199ae5a9d4b43ca63d81d2
 
 %files man
 %defattr(0644,root,root,0755)
