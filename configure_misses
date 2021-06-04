@@ -1,27 +1,26 @@
-Configure miss: dld_link in -ldld
+Configure miss: Are we using per driver iconv 
 Configure miss: _ prefix in compiled symbols
-Configure miss: sys/dl.h
-Configure miss: dld.h
-Configure miss: mach-o/dyld.h
-Configure miss: readline in -lreadline 
-Configure miss: readline in -lreadline -lcurses 
-Configure miss: if os is AIX 
-Configure miss: mutex_lock in -lthread 
-Configure miss: synch.h usability
-Configure miss: synch.h presence
-Configure miss: synch.h
-Configure miss: sys/malloc.h usability
-Configure miss: sys/malloc.h presence
-Configure miss: sys/malloc.h
-Configure miss: varargs.h usability
-Configure miss: varargs.h presence
-Configure miss: varargs.h
-Configure miss: msql.h usability
-Configure miss: msql.h presence
-Configure miss: msql.h
-Configure miss: dld_link in -ldld
 Configure miss: _ prefix in compiled symbols
-Configure miss: sys/dl.h
-Configure miss: dld.h
-Configure miss: mach-o/dyld.h
 Configure miss: are we setting library version 
+Configure miss: dld.h
+Configure miss: dld.h
+Configure miss: dld_link in -ldld
+Configure miss: dld_link in -ldld
+Configure miss: if os is AIX 
+Configure miss: mach-o/dyld.h
+Configure miss: mach-o/dyld.h
+Configure miss: msql.h
+Configure miss: msql.h presence
+Configure miss: msql.h usability
+Configure miss: mutex_lock in -lthread 
+Configure miss: synch.h
+Configure miss: synch.h presence
+Configure miss: synch.h usability
+Configure miss: sys/dl.h
+Configure miss: sys/dl.h
+Configure miss: sys/malloc.h
+Configure miss: sys/malloc.h presence
+Configure miss: sys/malloc.h usability
+Configure miss: varargs.h
+Configure miss: varargs.h presence
+Configure miss: varargs.h usability
