@@ -1,7 +1,28 @@
+4-May-2022
+2.3.11
+
+    * Missing files has caused a problem. I am pushing a 2.3.11 to try and make versiosn match up
+
+11-Jan-2021
+2.3.10
+
+    * Add connection pooling via wide connection functions
+    * Remove "#define VERSION" from unixodbc_conf.h
+    * Call driver functions through prototypes 
+    * Add connection pool limit option
+    * Add fseeko support in cursor lib
+    * Try and prevent logging buffer overflow
+    * Add 'echo' option to isql/iusql
+    * Alter isql/iusql buffering
+    * Alter unicode to ascii conversion in SQLGetDiagField
+    * Fix pooling problem when user name and or password is not provided
+    * Fix a couple of reported buffer overflow conditions
+    * Fix iconv leak with timeout in pooled connection
+
 06-Sep-2020
 2.3.9
 
-    # Remove "#define UNIXODBC_SOURCE" from unixodbc_conf.h
+    * Remove "#define UNIXODBC_SOURCE" from unixodbc_conf.h
 
 30-Aug-2020
 2.3.8
